@@ -14,7 +14,7 @@ class Enemy extends CyjImage {
         this.lives = 1
     }
 
-    kill = () => {
+    kill() {
         let lives = this.lives
         lives--
         if (lives < 1) {
@@ -22,7 +22,7 @@ class Enemy extends CyjImage {
         }
     }
 
-    collide = (b) => {
+    collide(b) {
         // AB两矩形相交
         // b 在 a 中
         // b 左上角的 x 在 a 的里面

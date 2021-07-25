@@ -1,14 +1,31 @@
 class CyjImage {
-    constructor(game, name) {
+    constructor(game, name, width, height) {
+        // log('width', width)
         this.game = game
         this.texture = game.textureByName(name)
         this.x = 0
         this.y = 0
-        this.w = this.texture.width
-        this.h = this.texture.height
+        // if (width !== undefined) {
+        //     log('width', width)
+        //     this.w = width
+            // log(this, 'haha')
+        //     log('width', this.w)
+        // } else {
+            this.w = width || this.texture.width
+        // }
+        if (height !== undefined) {
+            // log('hello')
+            this.h = height
+
+        } else {
+            this.h = this.texture.height
+        }
+        // this.w = this.texture.width
+        // this.h = height || this.texture.height
+        // log(this, 'end')
     }
-    static new(game, name) {
-        const i = new this(game, name)
+    static new(game, name, width, height) {
+        const i = new this(game, name, width, height)
         return i
     }
     draw() {

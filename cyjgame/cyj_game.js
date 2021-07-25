@@ -25,7 +25,7 @@ class CyjGame {
         return this.i
     }
     drawImage(cyjImage) {
-        this.context.drawImage(cyjImage.texture, cyjImage.x, cyjImage.y)
+        this.context.drawImage(cyjImage.texture, cyjImage.x, cyjImage.y, cyjImage.w, cyjImage.h)
     }
     // update
     update = () => {
@@ -71,9 +71,9 @@ class CyjGame {
     textureByName = (name) => {
         let img = this.images[name]
         // let image = {
-        //     w: img.width,
-        //     h: img.height,
-        //     image: img,
+        //     w: width,
+        //     h: height,
+        //     img: this.images[name],
         // }
         return img
     }

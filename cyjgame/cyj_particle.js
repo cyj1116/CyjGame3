@@ -27,6 +27,7 @@ class CyjParticleSystem {
         this.game = game
         this.x = x
         this.y = y
+        this.alive = true
         this.setup()
 
     }
@@ -56,7 +57,9 @@ class CyjParticleSystem {
 
     update() {
         this.duration--
-
+        if (this.duration < 0) {
+            this.alive = false
+        }
         // 添加小火花
         if (this.particles.length < this.numberOfParticles) {
             let p = CyjParticle.new(this.game)

@@ -67,10 +67,20 @@ const __main = () => {
         idle4: 'img/idle/Warrior_Idle_4.png',
         idle5: 'img/idle/Warrior_Idle_5.png',
         idle6: 'img/idle/Warrior_Idle_6.png',
+        // flappy bird images
+        bg: 'img/bird/background.png',
+        ground: 'img/bird/ground.png',
+        bird1: 'img/bird/bird-01.png',
+        bird2: 'img/bird/bird-02.png',
+        bird3: 'img/bird/bird-03.png',
+        // d
+        d1: 'img/bird/d-01.png',
+        // d2: 'img/bird/d-02.png',
+        // d3: 'img/bird/d-03.png',
     }
 
 
-const game = CyjGame.instance(60, images, (g) => {
+const game = CyjGame.instance(30, images, (g) => {
     // let s = Scene.new(g)
     let s = SceneTitle.new(g)
     g.runWithScene(s)

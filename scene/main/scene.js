@@ -7,6 +7,8 @@ const config = {
     fps: window.fps,
 }
 
+
+
 class Scene extends CyjScene {
     constructor(game) {
         super(game)
@@ -34,7 +36,7 @@ class Scene extends CyjScene {
 
         let es = []
         for (let i = 0; i < this.numberOfEnemies; i++) {
-            log('loop')
+            // log('loop')
             const e = Enemy.new(this.game, 'enemy');
             es.push(e)
             this.addElement(e)
@@ -63,24 +65,43 @@ class Scene extends CyjScene {
         })
     }
 
-    update() {
-        super.update()
-        // 子弹击中敌机
-        let bullet = this.player.b
-        let lastEle = Array.from(this.elements.slice(-1))
-        log(lastEle, 'lastEle')
-        if (lastEle[0].name === 'bullet') {
-            log(bullet, 'b')
-            for (let i = 0; i < this.enemies.length; i++) {
-                const e = this.enemies[i];
-                if (e.collide(bullet)) {
-                    let ps = CyjParticleSystem.new(this.game, bullet.x, bullet.y)
+    bulletHitEnemy(enemy, array) {
+        // log(enemy, 'enemy')
+        let arr = Array.from(array)
+        for (const eElement of arr) {
+            if (eElement.name === 'bullet') {
+                let bullet = eElement
+                if (enemy.collide(bullet)) {
+                    let ps = CyjParticleSystem.new(this.game, enemy.x, enemy.y)
                     this.addElement(ps)
-                    e.kill()
+                    enemy.kill()
                     bullet.life--
                 }
             }
         }
+    }
+
+    collideEnemy(enemy) {
+        if (enemy.collide(this.player)) {
+            log('撞机')
+            let ps = CyjParticleSystem.new(this.game, enemy.x, enemy.y)
+            this.addElement(ps)
+            enemy.kill()
+        }
+    }
+
+    hit() {
+        for (let i = 0; i < this.enemies.length; i++) {
+            const enemy = this.enemies[i];
+            let e = this.elements
+            this.bulletHitEnemy(enemy, e)
+            this.collideEnemy(enemy)
+        }
+    }
+
+    update() {
+        super.update()
+        this.hit()
 
         // 撞机
         for (let i = 0; i < this.enemies.length; i++) {
@@ -98,7 +119,6 @@ class Scene extends CyjScene {
         if (this.elements.length === 3) {
             this.addEnemies()
         }
-    log(this.elements, 'ele')
-
+    // log(this.elements, 'te')
     }
 }

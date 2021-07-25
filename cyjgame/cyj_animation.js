@@ -1,30 +1,65 @@
+const warrior_config = {
+    idle: 6,
+    run: 8,
+}
+
+const bird_config = {
+    bird: 3
+}
+
+const d_config = {
+    d: 1
+}
 class CyjAnimation {
-    constructor(game) {
+    // config是一个对象{
+    //      animationName: numberOfFrames,
+    // }
+    constructor(game, config) {
         this.game = game
-        // 偷懒, hard code 一套动画
+        this.config = config
         this.animations = {
-            idle: [],
-            run: [],
+            // idle: [],
+            // run: [],
         }
-        for (let i = 1; i < 8; i++) {
-            const name = `run${i}`
-            let t = game.textureByName(name)
-            this.animations['run'].push(t)
+        this.setup()
+    }
+    static new(game, config) {
+        return new this(game, config)
+    }
+    setup() {
+        for (const key in this.config) {
+            this.animations[`${key}`] = []
+            this.setAnimation(key, this.config[`${key}`])
         }
-        for (let i = 1; i < 6; i++) {
-            const name = `idle${i}`
-            let t = game.textureByName(name)
-            this.animations['idle'].push(t)
+        for (const firstKey in this.config) {
+            this.defaultAction = `${firstKey}`
+            break
         }
-        this.animationName = 'idle'
+
+        this.animationName = this.defaultAction
         this.texture = this.frames()[0]
         this.w = this.texture.width
         this.h = this.texture.height
         this.frameIndex = 0
-        this.frameCount = 6
+        this.frameCount = 3
+        //
+        this.flipX = false
+        this.rotation = 0
+        // 重力和加速度
+        this.gy = 10
+        this.vy = 0
     }
-    static new(game) {
-        return new this(game)
+
+    setAnimation(animationName, numberOfFrames) {
+        for (let i = 1; i < numberOfFrames + 1; i++) {
+            const name = `${animationName}${i}`
+            let t = this.game.textureByName(name)
+            log(t, 't')
+            this.animations[`${animationName}`].push(t)
+        }
+    }
+    jump() {
+        this.vy = -10
     }
     draw() {
         let context = this.game.context
@@ -35,33 +70,41 @@ class CyjAnimation {
             context.translate(x, 0)
             context.scale(-1, 1)
             context.translate(-x, 0)
-            // log('draw x -x', x, -x, this.y)
             context.drawImage(this.texture, this.x, this.y)
 
             context.restore()
-
         } else {
             context.drawImage(this.texture, this.x, this.y)
         }
 
     }
-
     frames() {
+        // log()
         return this.animations[this.animationName]
     }
 
     update() {
+        // 更新受力
+        this.y += this.vy
+        this.vy += this.gy * 0.2
+        let h = 498
+        if (this.y > h) {
+            this.y = h
+        }
         this.frameCount--
         if (this.frameCount === 0) {
             this.frameCount = 6
+            log(this.animations, 'this.animations')
+            log(this.frames(), 'this.frames()')
             this.frameIndex = (this.frameIndex + 1) % this.frames().length
             this.texture = this.frames()[this.frameIndex]
         }
     }
+    // need update
     move(x, keyStatus) {
         this.flipX = x < 0
         this.x += x
-        // log('keyStatus', keyStatus)
+        // 表驱动法
         let animationNames = {
             down: 'run',
             up: 'idle',
@@ -78,4 +121,80 @@ class CyjAnimation {
     changeAnimation(name) {
         this.animationName = name
     }
+}
+
+class BirdAnimation extends CyjAnimation {
+    constructor(game, config) {
+        super(game, config);
+    }
+
+
+    move(x, keyStatus) {
+        this.flipX = x < 0
+        this.x += x
+        // 表驱动法
+        // let animationNames = {
+        //     down: 'bird',
+        //     up: 'bird',
+        // }
+        // let name = animationNames[keyStatus]
+        // this.changeAnimation(name)
+
+        // if (keyStatus === 'down') {
+        //     this.changeAnimation('run')
+        // } else if (keyStatus === 'up') {
+        //     this.changeAnimation('idle')
+        // }
+    }
+    draw() {
+        let context = this.game.context
+        context.save()
+        // 坐标系原点放到小鸟中心
+        let w2 = this.w / 2
+        let h2 = this.h / 2
+        context.translate(this.x + w2, this.y + h2)
+        if (this.flipX) {
+            context.scale(-1, 1)
+        }
+        context.rotate(this.rotation * Math.PI / 180)
+        context.translate(-w2, -h2)
+        context.drawImage(this.texture, 0, 0)
+
+        context.restore()
+
+    }
+    jump() {
+        super.jump();
+        this.rotation = -45
+
+    }
+    update() {
+        super.update();
+        // 更新角度
+        if (this.rotation < 45) {
+            this.rotation += 5
+        }
+    }
+
+    // update() {
+    //     // 更新受力
+    //     this.y += this.vy
+    //     this.vy += this.gy * 0.2
+    //     let h = 498
+    //     if (this.y > h) {
+    //         this.y = h
+    //     }
+    //     // 更新角度
+    //     if (this.rotation < 45) {
+    //         this.rotation += 5
+    //     }
+    //     this.frameCount--
+    //     if (this.frameCount === 0) {
+    //         this.frameCount = 6
+    //         log(this.animations, 'this.animations')
+    //         log(this.frames(), 'this.frames()')
+    //         this.frameIndex = (this.frameIndex + 1) % this.frames().length
+    //         this.texture = this.frames()[this.frameIndex]
+    //     }
+    // }
 }
