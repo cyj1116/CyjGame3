@@ -28,19 +28,19 @@ class SceneTitle extends CyjScene {
         // this.addElement(w)
         // this.setupInputs()
         // bird
-        // let b = BirdAnimation.new(game, bird_config)
-        // b.x = 180
-        // b.y = 200
-        // this.b = b
-        // this.addElement(b)
-        // this.setupInputs()
-
-        let d = BirdAnimation.new(game, d_config)
-        d.x = 180
-        d.y = 400
-        this.d = d
-        this.addElement(d)
+        let b = BirdAnimation.new(game, bird_config)
+        b.x = 180
+        b.y = 200
+        this.b = b
+        this.addElement(b)
         this.setupInputs()
+
+        // let d = BirdAnimation.new(game, d_config)
+        // d.x = 180
+        // d.y = 400
+        // this.d = d
+        // this.addElement(d)
+        // this.setupInputs()
 
     }
 
@@ -60,18 +60,16 @@ class SceneTitle extends CyjScene {
         let b = this.b
         let d = this.d
         this.game.registerAction('a', (keyStatus) => {
-            // b.move(-2, keyStatus)
-            d.move(-2, keyStatus)
+            b.move(-2, keyStatus)
+            // d.move(-2, keyStatus)
         })
         this.game.registerAction( 'd', (keyStatus) => {
-            // b.move(2, keyStatus)
-            d.move(2, keyStatus)
+            b.move(2, keyStatus)
+            // d.move(2, keyStatus)
         })
         this.game.registerAction( 'j', (keyStatus) => {
-            // b.jump()
-            d.jump()
-
-
+            b.jump()
+            // d.jump()
         })
 
 

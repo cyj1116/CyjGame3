@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="271f4dad-90b0-4f4c-ad07-147ad4d5fd57" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/cyjgame/cyj_animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/cyjgame/cyj_animation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cyjgame/cyj_game.js" beforeDir="false" afterPath="$PROJECT_DIR$/cyjgame/cyj_game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cyjgame/cyj_image.js" beforeDir="false" afterPath="$PROJECT_DIR$/cyjgame/cyj_image.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cyjgame/cyj_particle.js" beforeDir="false" afterPath="$PROJECT_DIR$/cyjgame/cyj_particle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cyjgame/cyj_scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/cyjgame/cyj_scene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/game.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/player.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/player.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scene/main/bullet.js" beforeDir="false" afterPath="$PROJECT_DIR$/scene/main/bullet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scene/main/enemy.js" beforeDir="false" afterPath="$PROJECT_DIR$/scene/main/enemy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scene/main/player.js" beforeDir="false" afterPath="$PROJECT_DIR$/scene/main/player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scene/main/scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scene/main/scene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scene/title/scene_title.js" beforeDir="false" afterPath="$PROJECT_DIR$/scene/title/scene_title.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +40,7 @@
       <option name="presentableId" value="Default" />
       <updated>1627106612325</updated>
       <workItem from="1627106614932" duration="15000" />
-      <workItem from="1627130072296" duration="28822000" />
+      <workItem from="1627130072296" duration="29148000" />
     </task>
     <servers />
   </component>
