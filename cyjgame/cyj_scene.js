@@ -31,6 +31,7 @@ class CyjScene {
         }
     }
     update() {
+        e.debug && e.debug()
         if (this.debugModeEnabled) {
             for (let i = 0; i < this.elements.length; i++) {
                 const e = this.elements[i];

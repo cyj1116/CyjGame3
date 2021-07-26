@@ -8,6 +8,7 @@ class CyjGame {
         this.actions = {}
         this.keydowns = {}
         this.canvas = document.querySelector('#id-canvas')
+        log(this.canvas, 'this.canvas')
         this.context = this.canvas.getContext('2d')
         // events
         let self = this

@@ -61,9 +61,6 @@ class CyjAnimation {
             this.animations[`${animationName}`].push(t)
         }
     }
-    debug() {
-        this.vy = config.height_of_jump.value
-    }
     jump() {
         this.vy = -10
     }
@@ -132,9 +129,6 @@ class CyjAnimation {
 class BirdAnimation extends CyjAnimation {
     constructor(game, config) {
         super(game, config);
-    }
-    debug() {
-
     }
 
     move(x, keyStatus) {

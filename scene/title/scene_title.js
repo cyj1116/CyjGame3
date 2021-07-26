@@ -2,14 +2,14 @@ class Pipes {
     constructor(game, ) {
         this.game = game
         this.pipes = []
-        this.pipeSpaceY = 150
         this.pipeSpaceX = 200
+        this.pipeSpaceY = 150
         this.columsOfPipe = 3
         for (let i = 0; i < this.columsOfPipe; i++) {
-            let p1 = CyjImage.new(game, 'pipe',60, 300)
+            let p1 = CyjImage.new(game, 'pipe',60, 400)
             p1.flipY = true
             p1.x = 500 + i * this.pipeSpaceX
-            let p2 = CyjImage.new(game, 'pipe', 60, 300)
+            let p2 = CyjImage.new(game, 'pipe', 60, 400)
             p2.x = p1.x
             this.resetPipesPosition(p1, p2)
             this.pipes.push(p1)
@@ -20,7 +20,7 @@ class Pipes {
         return new this(game)
     }
     resetPipesPosition(p1, p2) {
-        p1.y = randomBetween(-200, 0)
+        p1.y = randomBetween(-300, 0)
         p2.y = p1.y + p1.h + this.pipeSpaceY
     }
     debug() {
@@ -29,6 +29,7 @@ class Pipes {
         window.fps = config.fps.value
     }
     update() {
+        this.debug()
         for (let i = 0; i < this.pipes.length; i += 2) {
             let p1 = this.pipes[i]
             let p2 = this.pipes[i + 1]
@@ -39,8 +40,10 @@ class Pipes {
             }
             if (p2.x < -100) {
                 p2.x += this.pipeSpaceX * this.columsOfPipe
-                // this.resetPipesPosition(p1, p2)
+                this.resetPipesPosition(p1, p2)
+
             }
+
         }
     }
     draw() {
