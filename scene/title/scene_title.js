@@ -23,11 +23,23 @@ class Pipes {
         p1.y = randomBetween(-200, 0)
         p2.y = p1.y + p1.h + this.pipeSpaceY
     }
+    debug() {
+        this.pipeSpaceX = config.pipe_space_x.value
+        this.pipeSpaceY = config.pipe_space_y.value
+        window.fps = config.fps.value
+    }
     update() {
-        for (const p of this.pipes) {
-            p.x -= 5
-            if (p.x < -100) {
-                p.x += this.pipeSpaceX * this.columsOfPipe
+        for (let i = 0; i < this.pipes.length; i += 2) {
+            let p1 = this.pipes[i]
+            let p2 = this.pipes[i + 1]
+            p1.x -= 5
+            p2.x -= 5
+            if (p1.x < -100) {
+                p1.x += this.pipeSpaceX * this.columsOfPipe
+            }
+            if (p2.x < -100) {
+                p2.x += this.pipeSpaceX * this.columsOfPipe
+                // this.resetPipesPosition(p1, p2)
             }
         }
     }
@@ -55,16 +67,13 @@ class Pipes {
 class SceneTitle extends CyjScene {
     constructor(game) {
         super(game)
-        // let label = CyjLabel.new(game, 'hello')
-        // this.addElement(label)
-
         // bg
         let bg = CyjImage.new(game, 'bg',400, 600)
         bg.y = -80
         this.addElement(bg)
         // 加入水管
-        this.pipe = Pipes.new(game)
-        this.addElement(this.pipe)
+        let pipes = Pipes.new(game)
+        this.addElement(pipes)
         // 循环移动地面
         this.grounds = []
         for (let i = 0; i < 30; i++) {
@@ -131,7 +140,8 @@ class SceneTitle extends CyjScene {
 
 
     }
-
+    debug() {
+    }
     update() {
         super.update();
         // 地面移动

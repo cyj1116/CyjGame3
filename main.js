@@ -33,13 +33,56 @@ const enableDebugMode = function (game, enable) {
         }
     })
     // 控制速度
-    document.querySelector('#id-input-speed').addEventListener('input', (event) => {
-        let input = event.target
-        window.fps = Number(input.value)
-    })
+    // document.querySelector('#id-input-speed').addEventListener('input', (event) => {
+    //     let input = event.target
+    //     window.fps = Number(input.value)
+    // })
+}
+const templateControl = (key, item) => {
+    let t = `
+                <div class="">
+                    <label>
+                        <input class="cyj-auto-slider"
+                               type="range"
+                               max="300"
+                               value="${item.value}"
+                               data-value="config.${key}"
+                        >
+                        ${item._comment}: <span class="cyj-label"></span>
+                    </label>
+                </div>
+            `
+    return t
 }
 
+const insertControls = () => {
+    let div = e('.cyj-controls')
+    let keys = Object.keys(config)
+    for (const k of keys) {
+        let item = config[k]
+        let html = templateControl(k, item)
+        div.insertAdjacentHTML('beforeend', html)
+    }
+}
+
+const bindEvents = () => {
+    bindAll('.cyj-auto-slider', 'input', (event) => {
+        let target = event.target
+        log(target, 'target')
+        let bindValue = target.dataset.value
+        log(bindValue, 'bindValue')
+        let v = target.value
+        log(v, 'v')
+        eval(bindValue + '.value =' + v)
+        // config[bindVar] = v
+        //
+        let label = target.closest('label').querySelector('.cyj-label')
+        label.innerText = v
+
+    })
+}
 const __main = () => {
+    // window.fps = 30
     const images = {
         bullet: 'img/bullet.png',
         cloud: 'img/cloud.png',
@@ -82,13 +125,18 @@ const __main = () => {
     }
 
 
-const game = CyjGame.instance(30, images, (g) => {
-    // let s = Scene.new(g)
-    let s = SceneTitle.new(g)
-    g.runWithScene(s)
-})
+    const game = CyjGame.instance(30, images, (g) => {
+        // let s = Scene.new(g)
+        let s = SceneTitle.new(g)
+        g.runWithScene(s)
+    })
 
     enableDebugMode(game, true)
+
+    // 从配置文件生成 HTML 控件
+    insertControls()
+    // 绑定事件
+    bindEvents()
 }
 
 __main()

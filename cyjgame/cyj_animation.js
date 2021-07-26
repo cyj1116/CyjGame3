@@ -57,9 +57,12 @@ class CyjAnimation {
         for (let i = 1; i < numberOfFrames + 1; i++) {
             const name = `${animationName}${i}`
             let t = this.game.textureByName(name)
-            log(t, 't')
+            // log(t, 't')
             this.animations[`${animationName}`].push(t)
         }
+    }
+    debug() {
+        this.vy = config.height_of_jump.value
     }
     jump() {
         this.vy = -10
@@ -97,8 +100,8 @@ class CyjAnimation {
         this.frameCount--
         if (this.frameCount === 0) {
             this.frameCount = 6
-            log(this.animations, 'this.animations')
-            log(this.frames(), 'this.frames()')
+            // log(this.animations, 'this.animations')
+            // log(this.frames(), 'this.frames()')
             this.frameIndex = (this.frameIndex + 1) % this.frames().length
             this.texture = this.frames()[this.frameIndex]
         }
@@ -130,7 +133,9 @@ class BirdAnimation extends CyjAnimation {
     constructor(game, config) {
         super(game, config);
     }
+    debug() {
 
+    }
 
     move(x, keyStatus) {
         this.flipX = x < 0

@@ -32,83 +32,22 @@
     <script src="scene/main/scene.js"></script>
     <script src="scene/end/scene_end.js"></script>
     <script src="scene/title/scene_title.js"></script>
-    <!--  关卡数据  -->
+    <!--  配置数据  -->
     <script src="level.js"></script>
+    <script src="config.js"></script>
 </head>
 <body>
-    <canvas id="id-canvas" width="400" height="600"></canvas>
-    <hr>
+<!--    <canvas id="id-canvas" width="400" height="600"></canvas>-->
+<!--    <hr>-->
 <!--    <input class="cyj-auto-slider" id="id-input-speed" type="range" value="1" data-value="config.fps">-->
 <!--     <span class="cyj-label"></span>-->
-    <div>
+
+<!--    <div>-->
 <!--        <textarea name="" id="id-text-log" cols="54" rows="20"></textarea>-->
-    </div>
-    <div>
-        <label>
-            <input class="cyj-auto-slider"
-                   id="id-input-speed"
-                   type="range"
-                   value="1"
-                   data-value="config.fps"
-            >
-            帧数: <span class="cyj-label"></span>
-        </label>
-    </div>
-    <div>
-        <label>
-            <input class="cyj-auto-slider" type="range"
-                   value="10"
-                   max=""
-                   data-value="config.player_speed"
-            >
-            飞机速度: <span class="cyj-label"></span>
-        </label>
-    </div>
-    <div>
-        <label>
-            <input class="cyj-auto-slider" type="range"
-                   value="5"
-                   data-value="config.bullet_speed"
-            >
-            子弹速度: <span class="cyj-label"></span>
-        </label>
-    </div>
-    <div>
-        <label>
-            <input class="cyj-auto-slider" type="range"
-                   value=""
-                   max="10"
-                   data-value="config.fire_cooldown"
-            >
-            子弹冷却: <span class="cyj-label"></span>
-        </label>
-    </div>
-    <div>
-        <label>
-            <input class="cyj-auto-slider" type="range"
-                   value="1"
-                   min="-10"
-                   max="10"
-                   data-value="config.cloud_speed"
-            >
-            云朵速度: <span class="cyj-label"></span>
-        </label>
+<!--    </div>-->
+
+    <div class="cyj-controls">
     </div>
     <script src="main.js"></script>
-    <script>
-
-
-        bindAll('.cyj-auto-slider', 'input', (event) => {
-            let target = event.target
-            let bindValue = target.dataset.value
-            let v = target.value
-            eval(bindValue + '=' + v)
-            // config[bindVar] = v
-            //
-            let label = target.closest('label').querySelector('.cyj-label')
-            label.innerText = v
-
-        })
-    </script>
 </body>
 </html>
