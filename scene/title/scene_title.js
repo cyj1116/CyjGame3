@@ -1,3 +1,57 @@
+class Pipes {
+    constructor(game, ) {
+        this.game = game
+        this.pipes = []
+        this.pipeSpaceY = 150
+        this.pipeSpaceX = 200
+        this.columsOfPipe = 3
+        for (let i = 0; i < this.columsOfPipe; i++) {
+            let p1 = CyjImage.new(game, 'pipe',60, 300)
+            p1.flipY = true
+            p1.x = 500 + i * this.pipeSpaceX
+            let p2 = CyjImage.new(game, 'pipe', 60, 300)
+            p2.x = p1.x
+            this.resetPipesPosition(p1, p2)
+            this.pipes.push(p1)
+            this.pipes.push(p2)
+        }
+    }
+    static new(game) {
+        return new this(game)
+    }
+    resetPipesPosition(p1, p2) {
+        p1.y = randomBetween(-200, 0)
+        p2.y = p1.y + p1.h + this.pipeSpaceY
+    }
+    update() {
+        for (const p of this.pipes) {
+            p.x -= 5
+            if (p.x < -100) {
+                p.x += this.pipeSpaceX * this.columsOfPipe
+            }
+        }
+    }
+    draw() {
+        let context = this.game.context
+        for (const p of this.pipes) {
+            context.save()
+            // 坐标系原点放到小鸟中心
+            let w2 = p.w / 2
+            let h2 = p.h / 2
+            context.translate(p.x + w2, p.y + h2)
+            let scaleX = p.flipX ? -1 : 1
+            let scaleY = p.flipY ? -1 : 1
+            context.scale(scaleX, scaleY)
+            context.rotate(p.rotation * Math.PI / 180)
+            context.translate(-w2, -h2)
+            context.drawImage(p.texture, 0, 0, p.w, p.h)
+
+            context.restore()
+        }
+
+    }
+}
+
 class SceneTitle extends CyjScene {
     constructor(game) {
         super(game)
@@ -8,6 +62,9 @@ class SceneTitle extends CyjScene {
         let bg = CyjImage.new(game, 'bg',400, 600)
         bg.y = -80
         this.addElement(bg)
+        // 加入水管
+        this.pipe = Pipes.new(game)
+        this.addElement(this.pipe)
         // 循环移动地面
         this.grounds = []
         for (let i = 0; i < 30; i++) {
@@ -58,7 +115,7 @@ class SceneTitle extends CyjScene {
 
         // bird
         let b = this.b
-        let d = this.d
+        // let d = this.d
         this.game.registerAction('a', (keyStatus) => {
             b.move(-2, keyStatus)
             // d.move(-2, keyStatus)

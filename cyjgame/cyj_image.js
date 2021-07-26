@@ -5,24 +5,16 @@ class CyjImage {
         this.texture = game.textureByName(name)
         this.x = 0
         this.y = 0
-        // if (width !== undefined) {
-        //     log('width', width)
-        //     this.w = width
-            // log(this, 'haha')
-        //     log('width', this.w)
-        // } else {
-            this.w = width || this.texture.width
-        // }
+        this.w = width || this.texture.width
+        // this.h = height || this.texture.height
         if (height !== undefined) {
-            // log('hello')
             this.h = height
-
         } else {
             this.h = this.texture.height
         }
-        // this.w = this.texture.width
-        // this.h = height || this.texture.height
-        // log(this, 'end')
+        this.flipY = false
+        this.rotation = 0
+
     }
     static new(game, name, width, height) {
         const i = new this(game, name, width, height)

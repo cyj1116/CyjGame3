@@ -77,6 +77,8 @@ const __main = () => {
         d1: 'img/bird/d-01.png',
         // d2: 'img/bird/d-02.png',
         // d3: 'img/bird/d-03.png',
+        // pipe
+        pipe: 'img/bird/pipe.png',
     }
 
 

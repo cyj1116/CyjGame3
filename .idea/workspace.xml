@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="271f4dad-90b0-4f4c-ad07-147ad4d5fd57" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cyjgame/cyj_animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/cyjgame/cyj_animation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cyjgame/cyj_image.js" beforeDir="false" afterPath="$PROJECT_DIR$/cyjgame/cyj_image.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scene/title/scene_title.js" beforeDir="false" afterPath="$PROJECT_DIR$/scene/title/scene_title.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +43,10 @@
       <option name="presentableId" value="Default" />
       <updated>1627106612325</updated>
       <workItem from="1627106614932" duration="15000" />
-      <workItem from="1627130072296" duration="29148000" />
+      <workItem from="1627130072296" duration="29666000" />
+      <workItem from="1627222313925" duration="238000" />
+      <workItem from="1627281852021" duration="112000" />
+      <workItem from="1627283960476" duration="8270000" />
     </task>
     <servers />
   </component>

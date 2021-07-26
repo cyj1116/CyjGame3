@@ -42,9 +42,12 @@ class CyjAnimation {
         this.h = this.texture.height
         this.frameIndex = 0
         this.frameCount = 3
-        //
+        // 翻转
         this.flipX = false
+        // 旋转
         this.rotation = 0
+        //
+        this.alpha = 1
         // 重力和加速度
         this.gy = 10
         this.vy = 0
@@ -156,6 +159,9 @@ class BirdAnimation extends CyjAnimation {
         if (this.flipX) {
             context.scale(-1, 1)
         }
+        let alpha = context.globalAlpha
+        context.globalAlpha = this.alpha
+
         context.rotate(this.rotation * Math.PI / 180)
         context.translate(-w2, -h2)
         context.drawImage(this.texture, 0, 0)
@@ -169,11 +175,17 @@ class BirdAnimation extends CyjAnimation {
 
     }
     update() {
+        // 更新alpha
+        if (this.alpha > 0) {
+            this.alpha -= 0.05
+        }
+
         super.update();
         // 更新角度
         if (this.rotation < 45) {
             this.rotation += 5
         }
+
     }
 
     // update() {
