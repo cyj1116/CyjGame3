@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="271f4dad-90b0-4f4c-ad07-147ad4d5fd57" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/scene/main/pipes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cyjgame/cyj_animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/cyjgame/cyj_animation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cyjgame/cyj_game.js" beforeDir="false" afterPath="$PROJECT_DIR$/cyjgame/cyj_game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cyjgame/cyj_image.js" beforeDir="false" afterPath="$PROJECT_DIR$/cyjgame/cyj_image.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cyjgame/cyj_scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/cyjgame/cyj_scene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scene/main/scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scene/main/scene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scene/title/scene_title.js" beforeDir="false" afterPath="$PROJECT_DIR$/scene/title/scene_title.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,10 +53,22 @@
       <workItem from="1627281852021" duration="112000" />
       <workItem from="1627283960476" duration="17212000" />
       <workItem from="1627311060650" duration="2554000" />
+      <workItem from="1627453491934" duration="6316000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

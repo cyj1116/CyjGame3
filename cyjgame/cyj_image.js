@@ -28,10 +28,3 @@ class CyjImage {
     }
 }
 
-// 逻辑上来看不该继承 CyjImage , 但是先这样
-// class Player extends CyjImage {
-//     constructor(game, name) {
-//         super(game, name)
-//
-//     }
-// }

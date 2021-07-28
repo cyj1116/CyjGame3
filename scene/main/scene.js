@@ -1,7 +1,3 @@
-
-
-
-
 class Scene extends CyjScene {
     constructor(game) {
         super(game)

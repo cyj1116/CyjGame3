@@ -26,6 +26,7 @@ const enableDebugMode = function (game, enable) {
     window.addEventListener('keydown', (event) => {
         let k = event.key
         if (k === 'p') {
+            // log(window.paused)
             window.paused = !window.paused
         } else if ('1234567'.includes(k)) {
             // 为了 debug 临时加的载入关卡功能

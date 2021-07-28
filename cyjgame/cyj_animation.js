@@ -51,6 +51,7 @@ class CyjAnimation {
         // 重力和加速度
         this.gy = 10
         this.vy = 0
+        this.jumpHeight = 10
     }
 
     setAnimation(animationName, numberOfFrames) {
@@ -62,7 +63,7 @@ class CyjAnimation {
         }
     }
     jump() {
-        this.vy = -10
+        this.vy = -this.jumpHeight
     }
     draw() {
         let context = this.game.context
@@ -82,10 +83,11 @@ class CyjAnimation {
 
     }
     frames() {
-        // log()
         return this.animations[this.animationName]
     }
-
+    debug() {
+        this.jumpHeight = config.height_of_jump.value
+    }
     update() {
         // 更新受力
         this.y += this.vy
@@ -130,23 +132,9 @@ class BirdAnimation extends CyjAnimation {
     constructor(game, config) {
         super(game, config);
     }
-
     move(x, keyStatus) {
         this.flipX = x < 0
         this.x += x
-        // 表驱动法
-        // let animationNames = {
-        //     down: 'bird',
-        //     up: 'bird',
-        // }
-        // let name = animationNames[keyStatus]
-        // this.changeAnimation(name)
-
-        // if (keyStatus === 'down') {
-        //     this.changeAnimation('run')
-        // } else if (keyStatus === 'up') {
-        //     this.changeAnimation('idle')
-        // }
     }
     draw() {
         let context = this.game.context
@@ -166,46 +154,20 @@ class BirdAnimation extends CyjAnimation {
         context.drawImage(this.texture, 0, 0)
 
         context.restore()
-
     }
     jump() {
         super.jump();
         this.rotation = -45
-
     }
     update() {
         // 更新alpha
         if (this.alpha > 0) {
             this.alpha -= 0.05
         }
-
         super.update();
         // 更新角度
         if (this.rotation < 45) {
             this.rotation += 5
         }
-
     }
-
-    // update() {
-    //     // 更新受力
-    //     this.y += this.vy
-    //     this.vy += this.gy * 0.2
-    //     let h = 498
-    //     if (this.y > h) {
-    //         this.y = h
-    //     }
-    //     // 更新角度
-    //     if (this.rotation < 45) {
-    //         this.rotation += 5
-    //     }
-    //     this.frameCount--
-    //     if (this.frameCount === 0) {
-    //         this.frameCount = 6
-    //         log(this.animations, 'this.animations')
-    //         log(this.frames(), 'this.frames()')
-    //         this.frameIndex = (this.frameIndex + 1) % this.frames().length
-    //         this.texture = this.frames()[this.frameIndex]
-    //     }
-    // }
 }

@@ -14,12 +14,16 @@ const config = {
         _comment: '水管垂直间距',
         value: 150,
     },
-    pipe_space_x: {
-        _comment: '水管水平间距',
-        value: 200,
+    pipe_width: {
+        _comment: '水管宽度',
+        value: 60,
     },
     height_of_jump: {
         _comment: '跳跃高度',
         value: 10,
+    },
+    bird_speed: {
+        _comment: '小鸟速度',
+        value: 2,
     },
 }
