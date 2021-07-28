@@ -41,8 +41,8 @@ class Pipes {
         for (let i = 0; i < this.pipes.length; i += 2) {
             let p1 = this.pipes[i]
             let p2 = this.pipes[i + 1]
-            p1.x -= 5
-            p2.x -= 5
+            p1.x -= 6
+            p2.x -= 6
             if (p1.x < -100) {
                 p1.x += this.pipeSpaceX * this.columsOfPipe
             }
