@@ -31,6 +31,9 @@ class CyjScene {
         }
     }
     update() {
+        if (window.paused) {
+            return
+        }
         this.debug && this.debug()
         if (this.debugModeEnabled) {
             for (let i = 0; i < this.elements.length; i++) {
@@ -42,7 +45,6 @@ class CyjScene {
             const e = this.elements[i];
             e.update()
         }
-        // log(this)
     }
 }
 

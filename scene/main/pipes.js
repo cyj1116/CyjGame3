@@ -1,16 +1,20 @@
 class Pipes {
     constructor(game, ) {
         this.game = game
+        this.setup()
+        this.setupPipes()
+    }
+    static new(...args) {
+        return new this(...args)
+    }
+    setup() {
         this.pipes = []
         this.pipeSpaceX = 200
         this.pipeSpaceY = 150
         this.columsOfPipe = 3
         this.pipeHeight = 300
         this.pipeWidth = 60
-        this.setupPipes()
-    }
-    static new(game) {
-        return new this(game)
+        this.pipeSpeed = 3
     }
     setupPipes() {
         for (let i = 0; i < this.columsOfPipe; i++) {
@@ -22,7 +26,6 @@ class Pipes {
             this.resetPipesPosition(p1, p2)
             this.pipes.push(p1)
             this.pipes.push(p2)
-
         }
     }
     resetPipesPosition(p1, p2) {
@@ -30,19 +33,22 @@ class Pipes {
         p2.y = p1.y + p1.h + this.pipeSpaceY
         p1.w = this.pipeWidth
         p2.w = this.pipeWidth
-
     }
     debug() {
         this.pipeWidth = config.pipe_width.value
         this.pipeSpaceY = config.pipe_space_y.value
-        window.fps = config.fps.value
+        this.pipeSpeed = config.pipe_speed.value
+        // window.fps = config.fps.value
     }
     update() {
+        this.updatePipes()
+    }
+    updatePipes() {
         for (let i = 0; i < this.pipes.length; i += 2) {
             let p1 = this.pipes[i]
             let p2 = this.pipes[i + 1]
-            p1.x -= 6
-            p2.x -= 6
+            p1.x -= this.pipeSpeed
+            p2.x -= this.pipeSpeed
             if (p1.x < -100) {
                 p1.x += this.pipeSpaceX * this.columsOfPipe
             }
@@ -67,6 +73,5 @@ class Pipes {
             context.drawImage(p.texture, 0, 0, p.w, p.h)
             context.restore()
         }
-
     }
 }

@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="271f4dad-90b0-4f4c-ad07-147ad4d5fd57" name="Default Changelist" comment="优化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scene/main/pipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/scene/main/pipes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cyjgame/cyj_game.js" beforeDir="false" afterPath="$PROJECT_DIR$/cyjgame/cyj_game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cyjgame/cyj_scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/cyjgame/cyj_scene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scene/title/scene_title.js" beforeDir="false" afterPath="$PROJECT_DIR$/scene/title/scene_title.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +49,10 @@
       <workItem from="1627283960476" duration="17212000" />
       <workItem from="1627311060650" duration="2554000" />
       <workItem from="1627453491934" duration="6625000" />
-      <workItem from="1627462340406" duration="775000" />
+      <workItem from="1627462340406" duration="2873000" />
+      <workItem from="1627553079362" duration="1160000" />
+      <workItem from="1627795126233" duration="4105000" />
+      <workItem from="1629267918934" duration="1490000" />
     </task>
     <task id="LOCAL-00001" summary="优化">
       <created>1627460132383</created>

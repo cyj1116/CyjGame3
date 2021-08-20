@@ -20,10 +20,18 @@ const config = {
     },
     height_of_jump: {
         _comment: '跳跃高度',
-        value: 10,
+        value: 7,
     },
     bird_speed: {
         _comment: '小鸟速度',
         value: 2,
+    },
+    pipe_speed: {
+        _comment: '水管速度',
+        value: 3,
+    },
+    gravity: {
+        _comment: '重力',
+        value: 4,
     },
 }
